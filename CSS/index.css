@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Outer dotted box */
+.outer-box {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 2px dotted #4caf50; /* green dotted border */
+  border-radius: 10px;
+  text-align: center;
+}
+
+h1 {
+  color: #2196f3;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Inner dotted box */
+.calculator-box {
+  border: 2px dotted #333;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  position: relative; /* for reload button */
+}
+
+.intro {
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input {
+  width: 95%;
+  padding: 8px;
+  border: 1px solid #999;
+  border-radius: 20px;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.gender-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.gender-buttons button {
+  width: 100px;
+  padding: 8px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f9f9f9;
+  font-weight: bold;
+}
+
+.gender-buttons button.active {
+  background: #2196f3;
+  color: white;
+  border: 1px solid #1976d2;
+}
+
+#calculate {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  background: #2196f3;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#calculate:hover {
+  background: #1976d2;
+}
+
+.result-line {
+  display: flex;
+  justify-content: space-between; /* pushes them apart */
+  align-items: center;            /* aligns vertically */
+  margin: 10px 0;
+}
+
+#bmi-value {
+  border: 2px solid #2196f3;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+#bmi-value {
+  display: inline-block;
+  border: 2px solid #2196f3;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.calculator-box {
+  border: 2px dotted #333;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  position: relative; /* important for absolute positioning */
+}
+
+/* Health Status at top-left */
+.health-status-line {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Reset button bottom-right */
+.reset {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.reset:hover {
+  color: #2196f3;
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+
+/* Reload button */
+.reset {
+  position:absolute; right:16px; bottom:12px; width:28px; height:28px;
+  border-radius:50%; border:2px solid #cfe3ff; color:var(--blue);
+  background:#f0f7ff; cursor:pointer;
+}
+
+
+
+
+/* #health-status {
+  font-weight: bold;
+  color: #444;
+} */
