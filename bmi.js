@@ -1,16 +1,3 @@
-// Reload button (reset form)
-document.getElementById("reload-btn").addEventListener("click", function() {
-  document.getElementById("age").value = "";
-  document.getElementById("height").value = "";
-  document.getElementById("weight").value = "";
-  document.getElementById("bmi-value").textContent = "0.00";
-  document.getElementById("health-status").textContent = "";
-  maleBtn.classList.remove("active");
-  femaleBtn.classList.remove("active");
-});
-
-
-
 // BMI calculation
 document.getElementById("calculate").addEventListener("click", function() {
   let height = document.getElementById("height").value;
@@ -54,3 +41,13 @@ femaleBtn.addEventListener("click", function() {
   maleBtn.classList.remove("active");
 });
 
+// Reload button (reset form)
+document.getElementById("reload-btn").addEventListener("click", function() {
+  document.getElementById("age").value = "";
+  document.getElementById("height").value = "";
+  document.getElementById("weight").value = "";
+  document.getElementById("bmi-value").textContent = "0.00";
+  document.getElementById("health-status").textContent = "";
+  maleBtn.classList.remove("active");
+  femaleBtn.classList.remove("active");
+});
