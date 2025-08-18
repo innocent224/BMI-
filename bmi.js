@@ -1,53 +1,127 @@
-// BMI calculation
-document.getElementById("calculate").addEventListener("click", function() {
-  let height = document.getElementById("height").value;
-  let weight = document.getElementById("weight").value;
-  let bmiValue = document.getElementById("bmi-value");
-  let healthStatus = document.getElementById("health-status");
-
-  if (height > 0 && weight > 0) {
-    let bmi = (weight / ((height / 100) ** 2)).toFixed(2);
-    bmiValue.textContent = bmi;
-
-    if (bmi < 18.5) {
-      healthStatus.textContent = "Underweight";
-      healthStatus.style.color = "orange";
-    } else if (bmi >= 18.5 && bmi < 24.9) {
-      healthStatus.textContent = "Normal weight";
-      healthStatus.style.color = "green";
-    } else if (bmi >= 25 && bmi < 29.9) {
-      healthStatus.textContent = "Overweight";
-      healthStatus.style.color = "darkorange";
-    } else {
-      healthStatus.textContent = "Obesity";
-      healthStatus.style.color = "red";
-    }
-  } else {
-    alert("Please enter valid height and weight values!");
-  }
-});
-
-// Gender toggle
+// Select elements
+const ageInput = document.getElementById("age");
+const heightInput = document.getElementById("height");
+const weightInput = document.getElementById("weight");
 const maleBtn = document.getElementById("male");
 const femaleBtn = document.getElementById("female");
+const calculateBtn = document.getElementById("calculateBtn");
+const resetBtn = document.getElementById("resetBtn");
+const bmiResult = document.getElementById("bmi-result");
+const healthStatus = document.getElementById("health-status");
 
-maleBtn.addEventListener("click", function() {
-  maleBtn.classList.add("active");
-  femaleBtn.classList.remove("active");
+let selectedGender = null;
+
+// Gender selection
+maleBtn.addEventListener("click", () => {
+  selectedGender = "Male";
+  maleBtn.style.backgroundColor = "#2196F3";
+  maleBtn.style.color = "#fff";
+  femaleBtn.style.backgroundColor = "";
+  femaleBtn.style.color = "";
 });
 
-femaleBtn.addEventListener("click", function() {
-  femaleBtn.classList.add("active");
-  maleBtn.classList.remove("active");
+femaleBtn.addEventListener("click", () => {
+  selectedGender = "Female";
+  femaleBtn.style.backgroundColor = "#E91E63";
+  femaleBtn.style.color = "#fff";
+  maleBtn.style.backgroundColor = "";
+  maleBtn.style.color = "";
 });
 
-// Reload button (reset form)
-document.getElementById("reload-btn").addEventListener("click", function() {
-  document.getElementById("age").value = "";
-  document.getElementById("height").value = "";
-  document.getElementById("weight").value = "";
-  document.getElementById("bmi-value").textContent = "0.00";
-  document.getElementById("health-status").textContent = "";
-  maleBtn.classList.remove("active");
-  femaleBtn.classList.remove("active");
+
+function calculateBMI() {
+      let height = document.getElementById("height").value;
+      let weight = document.getElementById("weight").value;
+
+      if (height === "" || weight === "") {
+        alert("Please enter both height and weight!");
+        return;
+      }
+
+      let h = height / 100; // convert cm to meters
+      let bmi = (weight / (h * h)).toFixed(2);
+
+      document.getElementById("bmi-result").textContent = bmi;
+
+      let status = "";
+      if (bmi < 18.5) {
+        status = "Underweight";
+      } else if (bmi >= 18.5 && bmi < 24.9) {
+        status = "Normal weight";
+      } else if (bmi >= 25 && bmi < 29.9) {
+        status = "Overweight";
+      } else {
+        status = "Obese";
+      }
+
+      document.getElementById("health-status").textContent = status;
+    }
+
+
+// Reset button
+resetBtn.addEventListener("click", () => {
+  ageInput.value = "";
+  heightInput.value = "";
+  weightInput.value = "";
+  bmiResult.textContent = "0.00";
+  healthStatus.textContent = "";
+
+  maleBtn.style.backgroundColor = "";
+  maleBtn.style.color = "";
+  femaleBtn.style.backgroundColor = "";
+  femaleBtn.style.color = "";
+  selectedGender = null;
 });
+
+
+
+
+
+
+
+
+
+//     // BMI Calculation
+// calculateBtn.addEventListener("click", () => {
+//   const age = parseInt(ageInput.value);
+//   const height = parseFloat(heightInput.value);
+//   const weight = parseFloat(weightInput.value);
+
+//   if (!age || !height || !weight || !selectedGender) {
+//     alert("⚠️ Please fill in all fields and select your gender.");
+//     return;
+//   }
+
+//   if (height <= 0 || weight <= 0 || age <= 0) {
+//     alert("⚠️ Please enter valid positive numbers.");
+//     return;
+//   }
+
+//   // Convert height from cm to meters
+//   const heightInMeters = height / 100;
+
+//   // BMI Formula
+//   const bmi = weight / (heightInMeters * heightInMeters);
+
+//   // Display BMI with 2 decimals
+//   bmiResult.textContent = bmi.toFixed(2);
+
+//   // Determine health status
+//   let status = "";
+//   if (bmi < 18.5) {
+//     status = "Underweight";
+//     healthStatus.style.color = "#2196F3";
+//   } else if (bmi >= 18.5 && bmi < 24.9) {
+//     status = "Normal weight";
+//     healthStatus.style.color = "#4CAF50";
+//   } else if (bmi >= 25 && bmi < 29.9) {
+//     status = "Overweight";
+//     healthStatus.style.color = "#FF9800";
+//   } else {
+//     status = "Obese";
+//     healthStatus.style.color = "#F44336";
+//   }
+
+//   // Show result
+//   healthStatus.textContent = status;
+// });

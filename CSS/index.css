@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
@@ -14,19 +13,19 @@ body {
 
 /* Outer dotted box */
 .outer-box {
-  max-width: 600px;
+  max-width: 500px;
   margin: 30px auto;
-  padding: 20px;
+  padding: 40px;
   border: 2px dotted #4caf50; /* green dotted border */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   text-align: center;
 }
 
 h1 {
   color: #2196f3;
   font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-weight: 900;
+  margin-bottom: 50px;
 }
 
 /* Inner dotted box */
@@ -35,7 +34,7 @@ h1 {
   border-radius: 10px;
   padding: 20px;
   text-align: left;
-  position: relative; /* for reload button */
+  position: relative;  /* for reload button */
 }
 
 .intro {
@@ -49,16 +48,20 @@ h1 {
   margin-right: 5px;
 }
 
+.bi-person-bounding-box{
+  color: blue;
+}
+
 label {
   display: block;
   margin: 10px 0 5px;
 }
 
 input {
-  width: 95%;
+  width: 50%;
   padding: 8px;
-  border: 1px solid #999;
-  border-radius: 20px;
+  border: 2px solid #333;
+  border-radius: 50px;
   outline: none;
   margin-bottom: 15px;
 }
@@ -66,7 +69,8 @@ input {
 .gender-buttons {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .gender-buttons button {
@@ -164,11 +168,3 @@ input {
   border-radius:50%; border:2px solid #cfe3ff; color:var(--blue);
   background:#f0f7ff; cursor:pointer;
 }
-
-
-
-
-/* #health-status {
-  font-weight: bold;
-  color: #444;
-} */
